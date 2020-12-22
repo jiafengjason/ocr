@@ -315,5 +315,9 @@ def predict():
         print("预测", count, "次", "成功率=", success / count)
 
 if __name__ == '__main__':
-    train()
-    predict()
+    if len(sys.argv)<2:
+        sys.exit()
+    else:
+        func = eval(sys.argv[1])
+        args = sys.argv[2:]
+        func(*args)
